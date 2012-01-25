@@ -1,0 +1,13 @@
+PyCliper
+Copyright 2011-2012 Jun Kimura
+LICENSE MIT
+
+PyCliper is Tk-GUI application on multiplatform OS.
+This Application extend Clipboard.               
+User can provide plugin for this application to extend clipboard.
+
+Require:
+    Python >=2.6
+
+<USAGE>
+$ python pycliper
