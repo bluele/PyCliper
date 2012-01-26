@@ -76,7 +76,7 @@ class clipobserver():
             mod = self.loadModule(path)
             self.last_handler.set_handler(mod.handler, path)
             try:
-                result = mod.handler(text)
+                result = self._parseClipText(mod.handler(text))
             except Exception, err:
                 self.errorHandler(text, err)
         except AttributeError:
@@ -151,4 +151,15 @@ class clipobserver():
             アプリケーション側で保持されている現在のハンドラ名を取得します
         '''
         return self.parent.current_handler
+    
+    def _parseClipText(self, text):
+        '''
+        @summary: 
+            テキストをクリップボートに格納できる形式に変換します
+        @todo: 
+            アプリケーションからエンコーディングを選択できるようにする
+        '''
+        if isinstance(text, unicode):
+            return text.encode('utf8')
+        return text
         
